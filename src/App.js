@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import CurrentInfo from "./components/CurrentInfo";
+import Forecast from "./components/Forecast";
+import { getWeatherData } from "./WeatherServices";
 
 function App() {
+  const [weatherData, setWeatherData] = useState();
+  const [day, setDay] = useState(0);
+  useEffect(() => {
+    const getWeather = async () => {
+      const wd = await getWeatherData();
+      setWeatherData(wd);
+    };
+    getWeather();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    weatherData && (
+      <div className="app">
+        <button className="home" onClick={() => setDay(0)}></button>
+        <CurrentInfo weatherData={weatherData} day={day} />
+        <Forecast weatherData={weatherData} setDay={setDay} />
+      </div>
+    )
   );
 }
 

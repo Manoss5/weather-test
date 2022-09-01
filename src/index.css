@@ -1,13 +1,189 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+}
+
+.app {
+  position: relative;
+  width: 60rem;
+  height: 42rem;
+  background: linear-gradient(45deg, rgb(56, 242, 255), rgb(55, 148, 255));
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  padding-top: 8rem;
+  border-radius: 0.5rem;
+}
+
+.current-info {
+  display: flex;
+  justify-content: space-between;
+  width: 50rem;
+  height: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.current-icon {
+  width: 10rem;
+  height: 10rem;
+  background-repeat: no-repeat;
+  background-size: 130%;
+  background-position: center;
+}
+
+.current-weather {
+  width: 15rem;
+  height: 10rem;
+  font-size: 1.5rem;
+}
+
+.current-details {
+  width: 11rem;
+  height: 10rem;
+  font-size: 1.2rem;
+  text-align: end;
+}
+
+.forecast-wrapper {
+  margin-top: 8rem;
+  width: 50rem;
+  height: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.next-days {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.next-days > button {
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-weight: bold;
+  width: 14%;
+}
+
+.next-days > button:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.home {
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  outline: none;
+  border: none;
+  background-image: url(./img/home.png);
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgba(240, 248, 255, 0);
+  background-position: center;
+}
+
+.home:hover {
+  opacity: 0.8;
+}
+
+.normal-view {
+  display: inline;
+}
+
+.mini-view {
+  display: none;
+}
+
+.chart {
+  width: 87%;
+  height: 150%;
+  position: relative;
+  left: 3rem;
+}
+
+@media only screen and (max-width: 960px) {
+  .app {
+    width: 90vw;
+    height: 90vh;
+    margin-top: 2vh;
+    padding-top: 10vh;
+  }
+
+  .current-info {
+    width: 80vw;
+  }
+
+  .forecast-wrapper {
+    margin-top: 5vh;
+    width: 80vw;
+    height: 10vh;
+  }
+
+  .normal-view {
+    display: none;
+  }
+
+  .mini-view {
+    display: inline;
+  }
+
+  .chart {
+    left: 2.5rem;
+    height: 300%;
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  .app {
+    padding-top: 5vh;
+  }
+
+  .forecast-wrapper {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .current-info {
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    height: 50vh;
+  }
+
+  .current-weather,
+  .current-details {
+    text-align: center;
+  }
+
+  .current-icon {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .chart {
+    left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .chart {
+    left: 1.5rem;
+  }
+}
+
+@media (orientation: landscape) {
+  .current-info {
+    flex-direction: row;
+  }
 }

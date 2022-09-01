@@ -1,3 +1,18 @@
+This is a simple responsive weather app created with react!
+It fetches weather data from openweathermap api and displays it.
+It displays detailed weather info about the current weather and also
+a forecast for the next seven days along with detailed weather info
+about each day.
+Finaly it contains a line chart which was made using chart.js that
+displays the max temperature for the next 7 days.
+
+To install the app:
+-Clone the repo
+-cd into the folder from your terminal
+-run $ npm install
+-add your api key WeatherServices.js at API_KEY string
+-run $ npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
